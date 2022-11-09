@@ -12,7 +12,7 @@ namespace mtg_lite.Models.Cards
         private bool estUnPermanant;
         protected Permanant(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
-            dfthddhdrdrudytu
+            
         }
 
         public bool EstUnPermanant { get => estUnPermanant; }
