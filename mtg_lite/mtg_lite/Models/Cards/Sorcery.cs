@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Cards
 {
-    internal class Sorcery : Card
+    public class Sorcery : Card
     {
 
-        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
+        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, picture)
         {
         }
 
@@ -31,7 +31,7 @@ namespace mtg_lite.Models.Cards
                         return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png"));
                         
                     default:
-                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png")); ; 
+                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png"));
                         
                 }
                 

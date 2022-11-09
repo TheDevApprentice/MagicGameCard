@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Cards
 {
-    public class Creature : Permanant
+    public class Creature : Permanent
     {
         protected Creature(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
@@ -19,17 +19,17 @@ namespace mtg_lite.Models.Cards
             {
                 switch (stringEntree)
                 {
-                    case "death_by_dragons":
-                        return new Creature(stringEntree, new Mana(0, 0, 0, 2, 0, 4), new Bitmap("death_by_dragons.png"));
+                    case "barony_vampire":
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 2, 0, 2), new Bitmap("barony_vampire.png"));
 
-                    case "chain_lightning":
-                        return new Creature(stringEntree, new Mana(0, 0, 0, 0, 0, 1), new Bitmap("chain_lightning.png"));
+                    case "canyon_minotaur":
+                        return new Creature(stringEntree, new Mana(0, 0, 0, 1, 0, 3), new Bitmap("canyon_minotaur.png"));
 
-                    case "blightning":
-                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png"));
+                    case "scathe_zombies":
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), new Bitmap("scathe_zombies.png"));
 
                     default:
-                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png")); ;
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), new Bitmap("scathe_zombies.png"));
 
                 }
 

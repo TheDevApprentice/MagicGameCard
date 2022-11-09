@@ -16,20 +16,23 @@ namespace mtg_lite.Models.Cards
         private Mana manaCost;
         private Bitmap picture;
         private bool tapped;
+        private bool estUnPermanent;
         private Guid guid;
 
         public string Name { get => name; }
         public Bitmap Picture { get => picture; }
         public bool Tapped { get => tapped; set => ChangeTapped(value); }
+        public bool EstUnPermanent { get => estUnPermanent; }
         public Mana ManaCost { get => manaCost; }
 
         public event EventHandler<bool>? TappedChanged;
 
-        public Card(string name, Mana manaCost, Bitmap picture)
+        public Card(string name, Mana manaCost, bool estUnPermanent, Bitmap picture)
         {
             this.name = name;
             this.manaCost = manaCost;
             this.picture = picture;
+            this.estUnPermanent = estUnPermanent;
             tapped = false;
             guid = Guid.NewGuid();
         }
