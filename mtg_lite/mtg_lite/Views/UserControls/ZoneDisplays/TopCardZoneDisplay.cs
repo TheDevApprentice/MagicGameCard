@@ -57,5 +57,10 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void cardDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
         }
+
+        private void cardDisplay_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
