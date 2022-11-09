@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Cards
 {
-    internal class Sorcery
+    internal class Sorcery : Card
     {
 
         public Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)

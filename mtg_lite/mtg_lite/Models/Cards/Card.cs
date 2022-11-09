@@ -40,12 +40,12 @@ namespace mtg_lite.Models.Cards
             TappedChanged?.Invoke(this, tapped);
         }
 
-        public static bool operator ==(Card card1, Card card2)
+        public static bool operator == (Card card1, Card card2)
         {
             return card1.guid == card2.guid;
         }
 
-        public static bool operator !=(Card card1, Card card2)
+        public static bool operator != (Card card1, Card card2)
         {
             return !(card1 == card2);
         }
