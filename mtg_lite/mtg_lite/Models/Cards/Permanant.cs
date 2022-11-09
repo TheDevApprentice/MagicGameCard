@@ -9,11 +9,12 @@ namespace mtg_lite.Models.Cards
 {
     public class Permanant : Card
     {
-        public bool EstUnPermanant; 
+        private bool estUnPermanant;
         protected Permanant(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
+
         }
 
-        
+        public bool EstUnPermanant { get => estUnPermanant; }
     }
 }
