@@ -25,10 +25,12 @@ namespace mtg_lite.Models.Zones
             deckRN.Add(Land.Fabrique("Mountain"));
             deckRN.Add(Land.Fabrique("Swamp"));
             deckRN.Add(Land.Fabrique("Swamp"));
+            libraries.Add("deckRN", deckRN);
         }
 
         public static List<Card> GetCards(string libraryName)
         {
+
             if (libraries.ContainsKey(libraryName))
             {
                 return libraries[libraryName];
