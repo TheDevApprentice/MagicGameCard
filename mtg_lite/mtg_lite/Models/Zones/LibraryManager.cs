@@ -19,8 +19,7 @@ namespace mtg_lite.Models.Zones
 
         public static List<Card> GetCards(string libraryName)
         {
-            
-
+           
             if (libraries.ContainsKey(libraryName))
             {
                 return libraries[libraryName];
@@ -41,8 +40,7 @@ namespace mtg_lite.Models.Zones
                 Land.Fabrique("Mountain"),
                 Land.Fabrique("Mountain"),
                 Land.Fabrique("Swamp"),
-                Land.Fabrique("Swamp"),
-               
+                Land.Fabrique("Swamp"),               
             };
             libraries.Add("Red", Red);            
         }
