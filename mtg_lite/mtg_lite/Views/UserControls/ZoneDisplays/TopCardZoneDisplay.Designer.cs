@@ -35,29 +35,33 @@
             // lblZoneName
             // 
             this.lblZoneName.AutoSize = true;
-            this.lblZoneName.Location = new System.Drawing.Point(3, 0);
+            this.lblZoneName.Location = new System.Drawing.Point(2, 0);
+            this.lblZoneName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblZoneName.Name = "lblZoneName";
-            this.lblZoneName.Size = new System.Drawing.Size(129, 25);
+            this.lblZoneName.Size = new System.Drawing.Size(109, 20);
             this.lblZoneName.TabIndex = 1;
             this.lblZoneName.Text = "Zone Name (0)";
             // 
             // cardDisplay
             // 
             this.cardDisplay.Card = null;
-            this.cardDisplay.Location = new System.Drawing.Point(3, 28);
+            this.cardDisplay.Location = new System.Drawing.Point(2, 22);
+            this.cardDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cardDisplay.Name = "cardDisplay";
-            this.cardDisplay.Size = new System.Drawing.Size(205, 286);
+            this.cardDisplay.Size = new System.Drawing.Size(164, 229);
             this.cardDisplay.TabIndex = 2;
             this.cardDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardDisplay_CardClicked);
+            this.cardDisplay.Load += new System.EventHandler(this.cardDisplay_Load);
             // 
-            // OneCardZoneDisplay
+            // TopCardZoneDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cardDisplay);
             this.Controls.Add(this.lblZoneName);
-            this.Name = "OneCardZoneDisplay";
-            this.Size = new System.Drawing.Size(549, 580);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "TopCardZoneDisplay";
+            this.Size = new System.Drawing.Size(439, 464);
             this.ResumeLayout(false);
             this.PerformLayout();
 

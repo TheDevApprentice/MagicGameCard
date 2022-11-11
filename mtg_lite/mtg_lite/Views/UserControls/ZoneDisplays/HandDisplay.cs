@@ -13,16 +13,16 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 {
     public partial class HandDisplay : UserControl
     {
-        private Zone? hand;
+        private Hand? hand;
 
-        public Zone? Hand { get => hand; set => ChangeHand(value); }
+        public Hand? Hand { get => hand; set => ChangeHand(value); }
 
         public HandDisplay()
         {
             InitializeComponent();
         }
 
-        private void ChangeHand(Zone? newHand)
+        private void ChangeHand(Hand? newHand)
         {
             HandUnsubscribe();
             hand = newHand;
@@ -56,6 +56,9 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void rowOfCardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
+
+            hand.GererClique(card);
+
         }
     }
 }

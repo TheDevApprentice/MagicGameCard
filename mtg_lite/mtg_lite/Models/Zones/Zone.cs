@@ -1,6 +1,7 @@
 ﻿using mtg_lite.Models.Cards;
 using mtg_lite.Models.Cards.CardBacks;
 using mtg_lite.Models.Players;
+using mtg_lite.Views.UserControls.CardDisplays;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,7 +17,7 @@ namespace mtg_lite.Models.Zones
         protected Player player;
 
         public List<Card> Cards { get { return cards; } }
-        public string Name { get => "Zone"; }
+        public virtual string Name { get => "Zone"; }
         public virtual Card TopCard {
             get
             {
@@ -27,6 +28,10 @@ namespace mtg_lite.Models.Zones
                 return cards[cards.Count-1];
             }
         }
+        public virtual void GererClique(Card card) 
+        { 
+        }
+      
 
         public event EventHandler<List<Card>>? CardsChanged;
         public event EventHandler<Card>? CardAdded;
@@ -35,9 +40,9 @@ namespace mtg_lite.Models.Zones
         public Zone(List<Card> cards, Player player)
         {
             this.cards = cards;
-            this.player = player;
+            this.player = player;            
         }
-
+       
         public void AddCard(Card card)
         {
             cards.Add(card);
