@@ -1,4 +1,5 @@
 ﻿using mtg_lite.Models.Cards;
+using mtg_lite.Models.Cards.CardBacks;
 using mtg_lite.Models.Players;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace mtg_lite.Models.Zones
     {
         public override string Name { get => "Library"; }
 
+        
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
             this.cards = BrasserCarte(cards);
@@ -34,11 +36,26 @@ namespace mtg_lite.Models.Zones
         }
         public override void GererClique(Card card)
         {
-            RemoveCard(card);
+            if (cards.Count > 0)
+            {
+                RemoveTopCard();
+            }
+            else
+            {
+                throw new Exception ();
+            }
+                 
         }
-        public override string ToString()
+        public override Card TopCard
         {
-            return $"{Name} ({cards.Count})";
+            get
+            {
+                if (cards.Count == 0)
+                {
+                    return new CardBack();
+                }                                 
+                return new CardBack();
+            }
         }
     }
 }

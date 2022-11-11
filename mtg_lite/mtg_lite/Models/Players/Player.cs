@@ -35,12 +35,12 @@ namespace mtg_lite.Models.Players
 
         public void Subscribe()
         {
-            library.CardRemoved += Library_CardRemoved;
+            library.CardRemoved += Library_CardRemoved;            
         }
 
-        private void Library_CardRemoved(object? sender, Cards.Card card)
+        private void Library_CardRemoved(object? sender, Card card)
         {
-            hand.AddCard(card);
+            hand.AddCard(card);         
         }
 
         public void PlayCard(Card card)

@@ -18,5 +18,6 @@ namespace mtg_lite.Models.Zones
         {
             RemoveCard(card);
         }
+       
     }
 }
