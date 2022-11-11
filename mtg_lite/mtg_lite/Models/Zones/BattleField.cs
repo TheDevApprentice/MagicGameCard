@@ -1,4 +1,6 @@
-﻿using System;
+﻿using mtg_lite.Models.Cards;
+using mtg_lite.Models.Players;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Zones
 {
-    internal class BattleField
+    public class BattleField : Zone
     {
+        public BattleField(List<Card> cards, Player player) : base(cards, player)
+        {
+        }
     }
 }
