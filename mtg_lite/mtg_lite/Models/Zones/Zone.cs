@@ -17,7 +17,7 @@ namespace mtg_lite.Models.Zones
         protected Player player;
 
         public List<Card> Cards { get { return cards; } }
-        public string Name { get => "Zone"; }
+        public virtual string Name { get => "Zone"; }
         public virtual Card TopCard {
             get
             {
@@ -30,7 +30,6 @@ namespace mtg_lite.Models.Zones
         }
         public virtual void GererClique(Card card) 
         { 
-
         }
 
         public event EventHandler<List<Card>>? CardsChanged;
@@ -40,8 +39,7 @@ namespace mtg_lite.Models.Zones
         public Zone(List<Card> cards, Player player)
         {
             this.cards = cards;
-            this.player = player;
-            
+            this.player = player;            
         }
        
         public void AddCard(Card card)
