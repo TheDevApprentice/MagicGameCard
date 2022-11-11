@@ -1,4 +1,5 @@
-﻿using mtg_lite.Models.Zones;
+﻿using mtg_lite.Models.Players;
+using mtg_lite.Models.Zones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void cardDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
+            zone.RemoveCard(card);
         }
 
         private void cardDisplay_Load(object sender, EventArgs e)

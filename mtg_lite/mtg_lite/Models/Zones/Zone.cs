@@ -27,6 +27,9 @@ namespace mtg_lite.Models.Zones
                 return cards[cards.Count-1];
             }
         }
+        public virtual void gererClique(Card card) { 
+
+        }
 
         public event EventHandler<List<Card>>? CardsChanged;
         public event EventHandler<Card>? CardAdded;
@@ -36,8 +39,9 @@ namespace mtg_lite.Models.Zones
         {
             this.cards = cards;
             this.player = player;
+            
         }
-
+       
         public void AddCard(Card card)
         {
             cards.Add(card);
