@@ -37,9 +37,10 @@ namespace mtg_lite.Models.Players
         {
             library.CardRemoved += Library_CardRemoved;
             hand.CardRemoved += hand_CardRemoved; 
+            library.CardRemoved += Library_CardRemoved;
         }
 
-        private void Library_CardRemoved(object? sender, Cards.Card card)
+        private void Library_CardRemoved(object? sender, Card card)
         {
             hand.AddCard(card);
         } 
@@ -47,6 +48,7 @@ namespace mtg_lite.Models.Players
         {
             
             
+            hand.AddCard(card);         
         }
         public void PlayCard(Card card)
         {

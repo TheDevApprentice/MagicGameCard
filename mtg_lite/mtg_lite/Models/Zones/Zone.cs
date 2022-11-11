@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,7 +61,10 @@ namespace mtg_lite.Models.Zones
 
         protected void RemoveTopCard()
         {
+            Card carteTop = cards[cards.Count-1];
             cards.RemoveAt(cards.Count - 1);
+            CardRemoved?.Invoke(this, carteTop);
+            CardsChanged?.Invoke(this, cards);
         }
 
         public override string ToString()
