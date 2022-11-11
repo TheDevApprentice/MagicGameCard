@@ -51,6 +51,6 @@ namespace mtg_lite.Models.Cards
         public static bool operator != (Card card1, Card card2)
         {
             return !(card1 == card2);
-        }
+        }        
     }
 }

@@ -21,22 +21,22 @@ namespace mtg_lite.Models.Cards
                 switch (stringEntree)
                 {
                     case "Forest":
-                        return new Land(stringEntree, new Mana(0, 0, 1, 0, 0, 0), new Bitmap("forest.png"));
+                        return new Land(stringEntree, new Mana(0, 0, 1, 0, 0, 0), Resource.forest);
 
                     case "Island":
-                        return new Land(stringEntree, new Mana(0, 1, 0, 0, 0, 0), new Bitmap("island.png"));
+                        return new Land(stringEntree, new Mana(0, 1, 0, 0, 0, 0), Resource.island);
 
                     case "Mountain":
-                        return new Land(stringEntree, new Mana(0, 0, 0, 1, 0, 0), new Bitmap("mountain.png"));
+                        return new Land(stringEntree, new Mana(0, 0, 0, 1, 0, 0), Resource.mountain);
                     
                     case "Plains":
-                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 1, 0), new Bitmap("plains.png"));
+                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 1, 0), Resource.plains);
                     
                     case "Swamp":
-                        return new Land(stringEntree, new Mana(1, 0, 0, 0, 0, 0), new Bitmap("swamp.png"));
+                        return new Land(stringEntree, new Mana(1, 0, 0, 0, 0, 0), Resource.swamp);
 
                     default:
-                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 1), new Bitmap("blightning.png")); ;
+                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 1), Resource.blightning);
                     
                 }
 

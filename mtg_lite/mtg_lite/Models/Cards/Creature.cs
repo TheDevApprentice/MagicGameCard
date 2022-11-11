@@ -20,17 +20,15 @@ namespace mtg_lite.Models.Cards
                 switch (stringEntree)
                 {
                     case "barony_vampire":
-                        return new Creature(stringEntree, new Mana(1, 0, 0, 2, 0, 2), new Bitmap("barony_vampire.png"));
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 2, 0, 2), Resource.barony_vampire);
 
                     case "canyon_minotaur":
-                        return new Creature(stringEntree, new Mana(0, 0, 0, 1, 0, 3), new Bitmap("canyon_minotaur.png"));
+                        return new Creature(stringEntree, new Mana(0, 0, 0, 1, 0, 3), Resource.canyon_minotaur);
 
                     case "scathe_zombies":
-                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), new Bitmap("scathe_zombies.png"));
-
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), Resource.scathe_zombies);
                     default:
-                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), new Bitmap("scathe_zombies.png"));
-
+                        return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), Resource.scathe_zombies);
                 }
 
             }

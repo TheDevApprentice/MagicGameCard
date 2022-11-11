@@ -22,16 +22,16 @@ namespace mtg_lite.Models.Cards
                 switch (stringEntree)
                 {
                     case "death_by_dragons":
-                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 2, 0, 4), new Bitmap("death_by_dragons.png"));
+                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 2, 0, 4), Resource.death_by_dragons);
                        
                     case "chain_lightning":
-                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 0, 0, 1), new Bitmap("chain_lightning.png"));
+                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 0, 0, 1), Resource.chain_lightning);
                        
                     case "blightning":
-                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png"));
+                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), Resource.blightning);
                         
                     default:
-                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), new Bitmap("blightning.png"));
+                        return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), Resource.blightning);
                         
                 }
                 
