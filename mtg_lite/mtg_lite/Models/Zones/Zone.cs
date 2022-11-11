@@ -28,7 +28,8 @@ namespace mtg_lite.Models.Zones
                 return cards[cards.Count-1];
             }
         }
-        public virtual void gererClique(Card card) { 
+        public virtual void GererClique(Card card) 
+        { 
 
         }
 
