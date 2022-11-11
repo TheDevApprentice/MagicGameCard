@@ -16,16 +16,16 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 {
     public partial class BattlefieldDisplay : UserControl
     {
-        private BattleField? battlefield;
+        private Zone? battlefield;
 
-        public BattleField? Battlefield { get => battlefield; set => ChangeBattlefield(value); }
+        public Zone? Battlefield { get => battlefield; set => ChangeBattlefield(value); }
 
         public BattlefieldDisplay()
         {
             InitializeComponent();
         }
 
-        private void ChangeBattlefield(BattleField? newBattlefield)
+        private void ChangeBattlefield(Zone? newBattlefield)
         {
             BattlefieldUnsubscribe();
             battlefield = newBattlefield;
@@ -37,6 +37,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         {
             if (battlefield is null) { return; }
             grpBattlefield.Text = battlefield.ToString();
+            landsDisplay.Cards = battlefield.Cards; 
         }
 
         private void BattlefieldUnsubscribe()

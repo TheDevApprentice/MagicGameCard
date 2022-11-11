@@ -10,12 +10,13 @@ namespace mtg_lite.Models.Zones
 {
     public class BattleField : Zone
     {
+        public override string Name { get => "Battlefield"; }
         public BattleField(List<Card> cards, Player player) : base(cards, player)
         {
         }
         public override void GererClique(Card card)
         {
-            RemoveCard(card);
+            this.RemoveCard(card);
         }
     }
 }

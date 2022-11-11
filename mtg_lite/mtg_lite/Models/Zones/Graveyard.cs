@@ -10,7 +10,7 @@ namespace mtg_lite.Models.Zones
 {
     public class Graveyard : Zone
     {
-        
+        public override string Name { get => "Graveyard"; }
         public Graveyard(List<Card> cards, Player player) : base(cards, player)
         {
         }
