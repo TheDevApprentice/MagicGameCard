@@ -31,6 +31,7 @@ namespace mtg_lite.Models.Zones
         public virtual void GererClique(Card card) 
         { 
         }
+      
 
         public event EventHandler<List<Card>>? CardsChanged;
         public event EventHandler<Card>? CardAdded;

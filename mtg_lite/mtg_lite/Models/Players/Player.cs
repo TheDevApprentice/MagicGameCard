@@ -12,24 +12,24 @@ namespace mtg_lite.Models.Players
     public class Player
     {
         private Mana manaPool;
-        private Zone battlefield;
-        private Zone graveyard;
-        private Zone hand;
-        private Zone library;
+        private BattleField battlefield;
+        private Graveyard graveyard;
+        private Hand hand;
+        private Library library;
 
         public Mana ManaPool { get => manaPool; }
-        public Zone Battlefield { get => battlefield; }
-        public Zone Graveyard { get => graveyard; }
-        public Zone Hand { get => hand; }
-        public Zone Library { get => library; }
+        public BattleField Battlefield { get => battlefield; }
+        public Graveyard Graveyard { get => graveyard; }
+        public Hand Hand { get => hand; }
+        public Library Library { get => library; }
 
         public Player(string libraryName)
         {
             manaPool = new Mana();
-            battlefield = new Zone(new List<Card>(), this);
-            graveyard = new Zone(new List<Card>(), this);
-            hand = new Zone(new List<Card>(), this);
-            this.library = new Zone(LibraryManager.GetCards(libraryName), this);
+            battlefield = new BattleField(new List<Card>(), this);
+            graveyard = new Graveyard(new List<Card>(), this);
+            hand = new Hand(new List<Card>(), this);
+            this.library = new Library(LibraryManager.GetCards(libraryName), this);
             Subscribe();
         }
 

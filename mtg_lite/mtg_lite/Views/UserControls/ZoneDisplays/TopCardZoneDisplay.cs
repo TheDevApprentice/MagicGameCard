@@ -57,7 +57,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void cardDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
-            //zone.RemoveCard(card);
+           zone.GererClique(card);
         }
 
         private void cardDisplay_Load(object sender, EventArgs e)
