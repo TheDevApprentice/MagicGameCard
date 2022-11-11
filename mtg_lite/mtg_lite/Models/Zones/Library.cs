@@ -15,8 +15,9 @@ namespace mtg_lite.Models.Zones
 
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
+            this.cards = BrasserCarte(cards);
         }
-        public void BrasserCarte(List<Card> cards)
+        public List<Card> BrasserCarte(List<Card> cards)
         {
             int i = 0;
             Random rand = new Random();
@@ -24,9 +25,12 @@ namespace mtg_lite.Models.Zones
             while (cards.Count != 0)
             {
                 int x = rand.Next(0, cards.Count);
-                cards[x] = nouveauCards[i];
+                nouveauCards.Add(cards[x]);
+                cards.Remove(cards[x]);
                 i++;
             }
+            cards = nouveauCards;
+            return cards;
         }
         public override void GererClique(Card card)
         {

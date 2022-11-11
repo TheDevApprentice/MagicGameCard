@@ -10,6 +10,7 @@ namespace mtg_lite.Models.Zones
 {
     public class Hand : Zone
     {
+        public override string Name { get => "Hand"; }
         public Hand(List<Card> cards, Player player) : base(cards, player)
         {
         }

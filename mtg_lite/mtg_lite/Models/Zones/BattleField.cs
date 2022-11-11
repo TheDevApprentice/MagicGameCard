@@ -10,6 +10,7 @@ namespace mtg_lite.Models.Zones
 {
     public class BattleField : Zone
     {
+        public override string Name { get => "BattleField"; }
         public BattleField(List<Card> cards, Player player) : base(cards, player)
         {
         }
