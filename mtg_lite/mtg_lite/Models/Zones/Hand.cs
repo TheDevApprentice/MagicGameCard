@@ -21,9 +21,9 @@ namespace mtg_lite.Models.Zones
         {
             try
             {
-                foreach (var quantite in card.ManaCost)
+                foreach (var quantiteCouleur in card.ManaCost.ManaColors.Keys)
                 {
-                    if (ManaColor > player.ManaPool)
+                    if (card.ManaCost.ManaColors[quantiteCouleur.ToString()] > player.ManaPool.ManaColors[quantiteCouleur.ToString()]); 
                     {
                         throw new Exception("Vous ne disposez pas assez de mana pour cette carte.");
                     }
