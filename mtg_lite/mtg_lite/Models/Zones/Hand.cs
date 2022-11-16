@@ -19,7 +19,24 @@ namespace mtg_lite.Models.Zones
 
         public override void GererClique(Card card)
         {
-            this.player.PlayCard(card);
+            try
+            {
+                foreach (var quantite in card.ManaCost)
+                {
+                    if (ManaColor > player.ManaPool)
+                    {
+                        throw new Exception("Vous ne disposez pas assez de mana pour cette carte.");
+                    }
+                }
+                
+                player.PlayCard(card);
+            }
+            catch (Exception e )
+            {
+
+                MessageBox.Show(e.Message);
+            }
+           
            
         }
        

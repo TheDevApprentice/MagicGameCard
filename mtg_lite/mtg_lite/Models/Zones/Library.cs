@@ -41,7 +41,6 @@ namespace mtg_lite.Models.Zones
             }
             catch (Exception e )
             {
-
                 MessageBox.Show(e.Message);
             }                           
         }
