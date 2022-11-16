@@ -1,12 +1,7 @@
-﻿using mtg_lite.Models.Cards;
+﻿using mtg_lite.ExceptionsMaison;
+using mtg_lite.Models.Cards;
 using mtg_lite.Models.Cards.CardBacks;
 using mtg_lite.Models.Players;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Zones
 {
@@ -36,15 +31,19 @@ namespace mtg_lite.Models.Zones
         }
         public override void GererClique(Card card)
         {
-            if (cards.Count > 0)
+            try
             {
+                if(cards.Count == 0)
+                {
+                    throw new LibraryVide("La library est vide.");
+                }
                 RemoveTopCard();
             }
-            else
+            catch (Exception e )
             {
-                throw new Exception ();
-            }
-                 
+
+                MessageBox.Show(e.Message);
+            }                           
         }
         public override Card TopCard
         {
@@ -52,7 +51,7 @@ namespace mtg_lite.Models.Zones
             {
                 if (cards.Count == 0)
                 {
-                    return new CardBack();
+                    return new DarkCardBack();
                 }                                 
                 return new CardBack();
             }
