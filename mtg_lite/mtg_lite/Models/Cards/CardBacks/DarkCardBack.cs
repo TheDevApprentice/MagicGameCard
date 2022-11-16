@@ -9,7 +9,7 @@ namespace mtg_lite.Models.Cards.CardBacks
 {
     public class DarkCardBack : Card
     {
-        public DarkCardBack() : base("Dark Card Back", new Mana(), true, Resource.card_back_dark)
+        public DarkCardBack() : base("Dark Card Back", new Mana(), true, CardType.vide, Resource.card_back_dark)
         {
         }
     }

@@ -44,15 +44,21 @@ namespace mtg_lite.Models.Players
             hand.AddCard(card);
         } 
         private void hand_CardRemoved(object? sender, Cards.Card card)
-        {
-            
-            
-            hand.AddCard(card);         
+        {                     
+            //hand.AddCard(card);         
         }
         public void PlayCard(Card card)
         {
-            hand.RemoveCard(card); 
-            battlefield.AddCard(card);
+            if (card.EstUnPermanent == true)
+            {
+                hand.RemoveCard(card);
+                battlefield.AddCard(card);                
+            }
+            else
+            {
+                hand.RemoveCard(card);
+                graveyard.AddCard(card);
+            }
         }
     }
 }

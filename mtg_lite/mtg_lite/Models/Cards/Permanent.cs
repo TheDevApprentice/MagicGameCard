@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace mtg_lite.Models.Cards
 {
-    public class Permanent : Card
+    public abstract class Permanent : Card
     {
         
-        protected Permanent(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, true, picture)
+        protected Permanent(string name, Mana manaCost, CardType cardType, Bitmap picture) : base(name, manaCost, true, CardType.vide, picture)
         {
             
         }

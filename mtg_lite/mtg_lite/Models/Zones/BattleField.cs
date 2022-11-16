@@ -1,5 +1,6 @@
 ﻿using mtg_lite.Models.Cards;
 using mtg_lite.Models.Players;
+using MTGO_lite.Models.Manas.ManaColors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,17 @@ namespace mtg_lite.Models.Zones
         }
         public override void GererClique(Card card)
         {
+            if (card.Tapped == false)
+            {
+                card.Tapped = true;
+            }
+            else { card.Tapped = false; }
+
+            if (card.Tapped == true && card.CardType == CardType.land )
+            {
+                player.ManaPool.Add(card.ManaCost);
+            }
+           
             this.RemoveCard(card);
         }
         
