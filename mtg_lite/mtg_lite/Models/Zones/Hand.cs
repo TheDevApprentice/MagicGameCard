@@ -1,4 +1,5 @@
-﻿using mtg_lite.Models.Cards;
+﻿using mtg_lite.ExceptionsMaison;
+using mtg_lite.Models.Cards;
 using mtg_lite.Models.Players;
 using System;
 using System.Collections.Generic;
@@ -21,19 +22,17 @@ namespace mtg_lite.Models.Zones
         {
             try
             {
-                foreach (var quantiteCouleur in card.ManaCost.ManaColors.Keys)
+                foreach (var couleur in card.ManaCost.ManaColors.Keys)
                 {
-                    if (card.ManaCost.ManaColors[quantiteCouleur.ToString()] > player.ManaPool.ManaColors[quantiteCouleur.ToString()]); 
+                    if (card.ManaCost.ManaColors[couleur.ToString()] > player.ManaPool.ManaColors[couleur.ToString()])
                     {
-                        throw new Exception("Vous ne disposez pas assez de mana pour cette carte.");
+                        throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
                     }
-                }
-                
+                }                
                 player.PlayCard(card);
             }
             catch (Exception e )
             {
-
                 MessageBox.Show(e.Message);
             }
            
