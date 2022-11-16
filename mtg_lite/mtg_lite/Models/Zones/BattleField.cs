@@ -1,5 +1,6 @@
 ﻿using mtg_lite.Models.Cards;
 using mtg_lite.Models.Players;
+using MTGO_lite.Models.Manas;
 using MTGO_lite.Models.Manas.ManaColors;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace mtg_lite.Models.Zones
         {
         }
         public override void GererClique(Card card)
-        {
+        {            
             if (card.Tapped == false)
             {
                 card.Tapped = true;
@@ -26,11 +27,29 @@ namespace mtg_lite.Models.Zones
 
             if (card.Tapped == true && card.CardType == CardType.land )
             {
-                player.ManaPool.Add(card.ManaCost);
-            }
-           
-            this.RemoveCard(card);
-        }
-        
+                switch (card.Name)
+                {
+                    case "Forest":
+                         player.ManaPool.Add(new Mana(0, 0, 1, 0, 0, 0));
+                        break;
+                    case "Island":
+                        player.ManaPool.Add(new Mana(0, 1, 0, 0, 0, 0));
+                        break;
+                    case "Mountain":
+                        player.ManaPool.Add(new Mana(0, 0, 1, 0, 0, 0));
+                        break;
+                    case "Plains":
+                        player.ManaPool.Add(new Mana(0, 0, 0, 1, 0, 0));
+                        break;
+                    case "Swamp":
+                        player.ManaPool.Add(new Mana(1, 0, 0, 0, 0, 0));
+                        break;
+                    default:
+                        player.ManaPool.Add(new Mana(0, 0, 0, 0, 0, 0));
+                        break;
+                }
+                MessageBox.Show(card.Tapped.ToString());
+            }                
+        }      
     }
 }

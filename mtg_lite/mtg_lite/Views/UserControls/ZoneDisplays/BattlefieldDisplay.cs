@@ -59,7 +59,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void cardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
-            
+            battlefield?.GererClique(card);
         }
     }
 }

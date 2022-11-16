@@ -19,7 +19,7 @@ namespace mtg_lite.Models.Zones
         }
 
         public override void GererClique(Card card)
-        {
+        {            
             try
             {
                 foreach (var couleur in card.ManaCost.ManaColors.Keys)

@@ -11,8 +11,8 @@ namespace mtg_lite.Models.Cards
     public class Sorcery : Card
     {
 
-        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, CardType.sorcery, picture)
-        {
+        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, picture)
+        {            
         }
 
         public static Sorcery Fabrique(string stringEntree)

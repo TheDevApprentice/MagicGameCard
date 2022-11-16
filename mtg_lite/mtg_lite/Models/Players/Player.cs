@@ -29,14 +29,15 @@ namespace mtg_lite.Models.Players
             battlefield = new BattleField(new List<Card>(), this);
             graveyard = new Graveyard(new List<Card>(), this);
             hand = new Hand(new List<Card>(), this);
-            this.library = new Library(LibraryManager.GetCards(libraryName), this);
+            library = new Library (LibraryManager.GetCards(libraryName), this);
+            library.BrasserCarte(LibraryManager.GetCards(libraryName));
             Subscribe();
         }
 
         public void Subscribe()
         {
             library.CardRemoved += Library_CardRemoved;
-            hand.CardRemoved += hand_CardRemoved; 
+            hand.CardRemoved += hand_CardRemoved;            
         }
 
         private void Library_CardRemoved(object? sender, Card card)

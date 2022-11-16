@@ -9,8 +9,9 @@ namespace mtg_lite.Models.Cards
 {
     public class Creature : Permanent
     {
-        protected Creature(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, CardType.creature, picture)
-        {           
+        protected Creature(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
+        {
+            //cardType = CardType.creature;
         }
 
         public static Creature Fabrique(string stringEntree)
