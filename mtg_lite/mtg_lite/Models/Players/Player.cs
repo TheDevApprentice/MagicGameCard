@@ -4,6 +4,7 @@ using MTGO_lite.Models.Manas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +38,7 @@ namespace mtg_lite.Models.Players
         public void Subscribe()
         {
             library.CardRemoved += Library_CardRemoved;
-            hand.CardRemoved += hand_CardRemoved;            
+            hand.CardRemoved += hand_CardRemoved;
         }
 
         private void Library_CardRemoved(object? sender, Card card)
@@ -50,6 +51,7 @@ namespace mtg_lite.Models.Players
         }
         public void PlayCard(Card card)
         {
+            ManaPool.Pay(card.ManaCost);
             if (card.EstUnPermanent == true)
             {
                 hand.RemoveCard(card);

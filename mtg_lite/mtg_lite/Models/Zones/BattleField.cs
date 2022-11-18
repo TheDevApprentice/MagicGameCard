@@ -30,26 +30,30 @@ namespace mtg_lite.Models.Zones
                 switch (card.Name)
                 {
                     case "Forest":
-                         player.ManaPool.Add(new Mana(0, 0, 1, 0, 0, 0));
+                        player.ManaPool.Add(new Mana(0, 0, 1, 0, 0, 0));
                         break;
                     case "Island":
                         player.ManaPool.Add(new Mana(0, 1, 0, 0, 0, 0));
                         break;
                     case "Mountain":
-                        player.ManaPool.Add(new Mana(0, 0, 1, 0, 0, 0));
+                        player.ManaPool.Add(new Mana(0, 0, 0, 1, 0, 0));
                         break;
                     case "Plains":
-                        player.ManaPool.Add(new Mana(0, 0, 0, 1, 0, 0));
+                        player.ManaPool.Add(new Mana(0, 0, 0, 0, 1, 0));
                         break;
                     case "Swamp":
                         player.ManaPool.Add(new Mana(1, 0, 0, 0, 0, 0));
                         break;
                     default:
-                        player.ManaPool.Add(new Mana(0, 0, 0, 0, 0, 0));
+                        player.ManaPool.Add(new Mana(0, 0, 0, 0, 0, 1));
                         break;
                 }
-                MessageBox.Show(card.Tapped.ToString());
+                //foreach (var manacolor in player.ManaPool.ManaColors)
+                //{
+                //    MessageBox.Show(manacolor.Value.ToString());
+                //}
+                //MessageBox.Show(player.ManaPool.ManaColors.ToString());
             }                
-        }      
+        }       
     }
 }

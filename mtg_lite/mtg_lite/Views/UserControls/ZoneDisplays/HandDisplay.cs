@@ -56,9 +56,7 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 
         private void rowOfCardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
-
             hand?.GererClique(card);
-
         }
     }
 }

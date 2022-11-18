@@ -43,13 +43,13 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void BattlefieldUnsubscribe()
         {
             if (battlefield is null) { return; }
-            battlefield.CardsChanged -= Battlefield_CardsChanged;
+            battlefield.CardsChanged -= Battlefield_CardsChanged;            
         }
 
         private void BattlefieldSubscribe()
         {
             if (battlefield is null) { return; }
-            battlefield.CardsChanged += Battlefield_CardsChanged;
+            battlefield.CardsChanged += Battlefield_CardsChanged;            
         }
 
         private void Battlefield_CardsChanged(object? sender, List<Models.Cards.Card> cards)
@@ -60,6 +60,12 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void cardsDisplay_CardClicked(object sender, Models.Cards.Card card)
         {
             battlefield?.GererClique(card);
+            card.TappedChanged += Card_TappedChanged;
+        }
+
+        private void Card_TappedChanged(object? sender, bool e)
+        {
+            DisplayBattlefield();
         }
     }
 }
