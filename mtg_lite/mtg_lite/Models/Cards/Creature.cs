@@ -11,7 +11,7 @@ namespace mtg_lite.Models.Cards
     {
         protected Creature(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
-            //cardType = CardType.creature;
+            cardType = CardType.creature;
         }
 
         public static Creature Fabrique(string stringEntree)

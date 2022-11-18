@@ -46,13 +46,13 @@ namespace mtg_lite.Models.Players
             hand.AddCard(card);
         } 
         private void hand_CardRemoved(object? sender, Cards.Card card)
-        {                     
-            //hand.AddCard(card);         
+        {                           
         }
         public void PlayCard(Card card)
-        {
-            ManaPool.Pay(card.ManaCost);
-            if (card.EstUnPermanent == true)
+        {            
+            ManaPool.Pay(card.ManaCost);            
+            
+            if (card.EstUnPermanent)
             {
                 hand.RemoveCard(card);
                 battlefield.AddCard(card);                

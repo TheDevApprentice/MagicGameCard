@@ -57,27 +57,31 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
-            try
-            {
+            
                 foreach (var manaColor in manaToPay.manaColors)
                 {
+                    if (manaColor.Key == ManaColorless.Name)
+                    {
+                        continue;
+                    }
                     if (manaColor.Value > manaColors[manaColor.Key])
                     {
                         throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
                     }
-                    else
-                    {
-                        manaColors[manaColor.Key].Remove(manaColor.Value);
-                        manaColors["Colorless"].Add(manaColors[manaColor.Key]);
-                        manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
-                    }
-
+                    
                 }
-            }
-            catch (Exception e )
-            {
-                MessageBox.Show(e.Message);
-            }           
+                foreach (var manaColor in manaToPay.manaColors)
+                {
+                    if (manaColor.Key == ManaColorless.Name)
+                    {
+                        continue;
+                    }                    
+                   
+                     manaColors[manaColor.Key].Remove(manaColor.Value);
+                        //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
+                        //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
+                    
+                }            
         }
 
         public void Add(Mana manaToAdd)
@@ -86,6 +90,15 @@ namespace MTGO_lite.Models.Manas
             {
                 manaColors[manaColor.Key].Add(manaColor.Value);
             }
+           
+        }
+        public void Remove(Mana manaToAdd)
+        {
+            foreach (var manaColor in manaToAdd.manaColors)
+            {
+                manaColors[manaColor.Key].Remove(manaColor.Value);
+            }
+
         }
     }
 }

@@ -8,7 +8,8 @@ namespace mtg_lite.Models.Cards
 {
     public enum CardType
     {
-        vide,        
+        vide,
+        creature,
         land       
     }
 }

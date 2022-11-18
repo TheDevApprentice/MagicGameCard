@@ -18,15 +18,8 @@ namespace mtg_lite.Models.Zones
         }
 
         public override void GererClique(Card card)
-        {            
-            try
-            {
-                player.PlayCard(card);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }                    
+        {             
+            player.PlayCard(card);                      
         }      
     }
 }
