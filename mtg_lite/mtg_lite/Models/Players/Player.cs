@@ -31,7 +31,7 @@ namespace mtg_lite.Models.Players
             graveyard = new Graveyard(new List<Card>(), this);
             hand = new Hand(new List<Card>(), this);
             library = new Library (LibraryManager.GetCards(libraryName), this);
-            library.BrasserCarte(LibraryManager.GetCards(libraryName));
+            library.BrasserCarte();
             Subscribe();
         }
 

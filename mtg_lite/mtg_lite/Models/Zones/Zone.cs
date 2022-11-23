@@ -65,8 +65,8 @@ namespace mtg_lite.Models.Zones
             CardRemoved?.Invoke(this, carteTop);
             CardsChanged?.Invoke(this, cards);
         }
-        public virtual List<Card> GetAllLands() { return cards; }
-        public virtual List<Card> GetAllCreatures() { return cards; }
+        //public virtual List<Card> GetAllLands() { return cards; }
+        //public virtual List<Card> GetAllCreatures() { return cards; }
 
         public override string ToString()
         {

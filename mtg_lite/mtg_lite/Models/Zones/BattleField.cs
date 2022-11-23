@@ -34,7 +34,7 @@ namespace mtg_lite.Models.Zones
                 RetirerMana(card);
             }
         }
-        public override List<Card> GetAllLands()
+        public List<Card> GetAllLands()
         {
             List<Card> listeDeLands = new List<Card>();
             foreach (var card in cards)
@@ -46,7 +46,7 @@ namespace mtg_lite.Models.Zones
             }
             return listeDeLands;
         }
-        public override List<Card> GetAllCreatures()
+        public List<Card> GetAllCreatures()
         {
             List<Card> listeDeCreatures = new List<Card>();
             foreach (var card in cards)
