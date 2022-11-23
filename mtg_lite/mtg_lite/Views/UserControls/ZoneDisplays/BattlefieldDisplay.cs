@@ -16,16 +16,16 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
 {
     public partial class BattlefieldDisplay : UserControl
     {
-        private Zone? battlefield;
+        private BattleField? battlefield;
 
-        public Zone? Battlefield { get => battlefield; set => ChangeBattlefield(value); }
+        public BattleField? Battlefield { get => battlefield; set => ChangeBattlefield(value); }
 
         public BattlefieldDisplay()
         {
             InitializeComponent();
         }
 
-        private void ChangeBattlefield(Zone? newBattlefield)
+        private void ChangeBattlefield(BattleField? newBattlefield)
         {
             BattlefieldUnsubscribe();
             battlefield = newBattlefield;
@@ -36,30 +36,38 @@ namespace mtg_lite.Views.UserControls.ZoneDisplays
         private void DisplayBattlefield()
         {
             if (battlefield is null) { return; }
+
             grpBattlefield.Text = battlefield.ToString();
-            landsDisplay.Cards = battlefield.Cards; 
+            landsDisplay.Cards = battlefield.GetAllLands();
+            creaturesDisplay.Cards = battlefield.GetAllCreatures();
         }
 
         private void BattlefieldUnsubscribe()
         {
             if (battlefield is null) { return; }
-            battlefield.CardsChanged -= Battlefield_CardsChanged;
+            battlefield.CardsChanged -= Battlefield_CardsChanged;            
         }
 
         private void BattlefieldSubscribe()
         {
             if (battlefield is null) { return; }
-            battlefield.CardsChanged += Battlefield_CardsChanged;
+            battlefield.CardsChanged += Battlefield_CardsChanged;            
         }
 
-        private void Battlefield_CardsChanged(object? sender, List<Models.Cards.Card> cards)
+        private void Battlefield_CardsChanged(object? sender, List<Card> cards)
         {
             DisplayBattlefield();
         }
 
-        private void cardsDisplay_CardClicked(object sender, Models.Cards.Card card)
+        private void cardsDisplay_CardClicked(object sender, Card card)
         {
-            
+            card.TappedChanged += Card_TappedChanged;
+            battlefield?.GererClique(card);            
+        }
+
+        private void Card_TappedChanged(object? sender, bool e)
+        {
+            DisplayBattlefield();
         }
     }
 }

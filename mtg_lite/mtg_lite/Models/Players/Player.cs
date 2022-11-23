@@ -4,6 +4,7 @@ using MTGO_lite.Models.Manas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,14 +30,15 @@ namespace mtg_lite.Models.Players
             battlefield = new BattleField(new List<Card>(), this);
             graveyard = new Graveyard(new List<Card>(), this);
             hand = new Hand(new List<Card>(), this);
-            this.library = new Library(LibraryManager.GetCards(libraryName), this);
+            library = new Library (LibraryManager.GetCards(libraryName), this);
+            library.BrasserCarte();
             Subscribe();
         }
 
         public void Subscribe()
         {
             library.CardRemoved += Library_CardRemoved;
-            hand.CardRemoved += hand_CardRemoved; 
+            hand.CardRemoved += hand_CardRemoved;
         }
 
         private void Library_CardRemoved(object? sender, Card card)
@@ -44,12 +46,13 @@ namespace mtg_lite.Models.Players
             hand.AddCard(card);
         } 
         private void hand_CardRemoved(object? sender, Cards.Card card)
-        {                     
-            //hand.AddCard(card);         
+        {                           
         }
         public void PlayCard(Card card)
-        {
-            if (card.EstUnPermanent == true)
+        {            
+            ManaPool.Pay(card.ManaCost);            
+            
+            if (card.EstUnPermanent)
             {
                 hand.RemoveCard(card);
                 battlefield.AddCard(card);                

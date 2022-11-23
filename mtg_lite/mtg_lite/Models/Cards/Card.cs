@@ -1,4 +1,5 @@
-﻿using MTGO_lite.Models.Manas;
+﻿using Microsoft.VisualBasic;
+using MTGO_lite.Models.Manas;
 using MTGO_lite.Models.Manas.ManaColors;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace mtg_lite.Models.Cards
         private bool tapped;
         private bool estUnPermanent;
         private Guid guid;
-        private CardType cardType;
+        protected CardType cardType;
 
         public string Name { get => name; }
         public Bitmap Picture { get => picture; }
@@ -27,15 +28,14 @@ namespace mtg_lite.Models.Cards
         public Mana ManaCost { get => manaCost; }
 
         public event EventHandler<bool>? TappedChanged;
-        public CardType CardType { get => cardType; }
+        public virtual CardType CardType { get => cardType; }
 
-        public Card(string name, Mana manaCost, bool estUnPermanent, CardType cardType, Bitmap picture)
+        public Card(string name, Mana manaCost, bool estUnPermanent, Bitmap picture)
         {
             this.name = name;
             this.manaCost = manaCost;
             this.picture = picture;
-            this.estUnPermanent = estUnPermanent;
-            this.cardType = cardType;
+            this.estUnPermanent = estUnPermanent;            
             tapped = false;
             guid = Guid.NewGuid();
         }

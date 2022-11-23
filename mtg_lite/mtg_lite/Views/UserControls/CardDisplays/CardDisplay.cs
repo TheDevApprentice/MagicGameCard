@@ -41,6 +41,11 @@ namespace mtg_lite.Views.UserControls.CardDisplays
             if (card is null) { return; }
             var image = new Bitmap(card.Picture);
             picCard.Image = image;
+            if (card.Tapped == true)
+            {
+                image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                picCard.Image = image;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

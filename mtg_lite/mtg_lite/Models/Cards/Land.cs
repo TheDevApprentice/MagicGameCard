@@ -10,8 +10,9 @@ namespace mtg_lite.Models.Cards
     public class Land : Permanent
     {
         
-        protected Land(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, CardType.land, picture)
+        protected Land(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {
+            cardType = CardType.land;
         }
 
         public static Land Fabrique(string stringEntree)
@@ -43,7 +44,6 @@ namespace mtg_lite.Models.Cards
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mtg_lite.ExceptionsMaison;
 using MTGO_lite.Models.Manas.ManaColors;
 
 namespace MTGO_lite.Models.Manas
@@ -56,14 +57,48 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
+            
+                foreach (var manaColor in manaToPay.manaColors)
+                {
+                    if (manaColor.Key == ManaColorless.Name)
+                    {
+                        continue;
+                    }
+                    if (manaColor.Value > manaColors[manaColor.Key])
+                    {
+                        throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
+                    }
+                    
+                }
+                foreach (var manaColor in manaToPay.manaColors)
+                {
+                    if (manaColor.Key == ManaColorless.Name)
+                    {
+                        continue;
+                    }                    
+                   
+                     manaColors[manaColor.Key].Remove(manaColor.Value);
+                        //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
+                        //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
+                    
+                }            
         }
 
-        public void Add(Mana mana)
+        public void Add(Mana manaToAdd)
         {
-            foreach (var manaColor in mana.manaColors)
+            foreach (var manaColor in manaToAdd.manaColors)
             {
                 manaColors[manaColor.Key].Add(manaColor.Value);
             }
+           
+        }
+        public void Remove(Mana manaToAdd)
+        {
+            foreach (var manaColor in manaToAdd.manaColors)
+            {
+                manaColors[manaColor.Key].Remove(manaColor.Value);
+            }
+
         }
     }
 }

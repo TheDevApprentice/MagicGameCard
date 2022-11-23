@@ -37,9 +37,10 @@
             // creaturesDisplay
             // 
             this.creaturesDisplay.Cards = null;
-            this.creaturesDisplay.Location = new System.Drawing.Point(6, 30);
+            this.creaturesDisplay.Location = new System.Drawing.Point(5, 24);
+            this.creaturesDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.creaturesDisplay.Name = "creaturesDisplay";
-            this.creaturesDisplay.Size = new System.Drawing.Size(1600, 300);
+            this.creaturesDisplay.Size = new System.Drawing.Size(1280, 240);
             this.creaturesDisplay.TabIndex = 0;
             this.creaturesDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardsDisplay_CardClicked);
             // 
@@ -47,9 +48,11 @@
             // 
             this.grpBattlefield.Controls.Add(this.landsDisplay);
             this.grpBattlefield.Controls.Add(this.creaturesDisplay);
-            this.grpBattlefield.Location = new System.Drawing.Point(3, 3);
+            this.grpBattlefield.Location = new System.Drawing.Point(2, 2);
+            this.grpBattlefield.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpBattlefield.Name = "grpBattlefield";
-            this.grpBattlefield.Size = new System.Drawing.Size(1613, 656);
+            this.grpBattlefield.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpBattlefield.Size = new System.Drawing.Size(1290, 525);
             this.grpBattlefield.TabIndex = 1;
             this.grpBattlefield.TabStop = false;
             this.grpBattlefield.Text = "Battlefield";
@@ -57,19 +60,21 @@
             // landsDisplay
             // 
             this.landsDisplay.Cards = null;
-            this.landsDisplay.Location = new System.Drawing.Point(7, 336);
+            this.landsDisplay.Location = new System.Drawing.Point(6, 269);
+            this.landsDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.landsDisplay.Name = "landsDisplay";
-            this.landsDisplay.Size = new System.Drawing.Size(1600, 300);
+            this.landsDisplay.Size = new System.Drawing.Size(1280, 240);
             this.landsDisplay.TabIndex = 1;
             this.landsDisplay.CardClicked += new System.EventHandler<mtg_lite.Models.Cards.Card>(this.cardsDisplay_CardClicked);
             // 
             // BattlefieldDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpBattlefield);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BattlefieldDisplay";
-            this.Size = new System.Drawing.Size(1659, 729);
+            this.Size = new System.Drawing.Size(1327, 583);
             this.grpBattlefield.ResumeLayout(false);
             this.ResumeLayout(false);
 
