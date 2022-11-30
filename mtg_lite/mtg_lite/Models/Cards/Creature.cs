@@ -33,10 +33,9 @@ namespace mtg_lite.Models.Cards
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
     }

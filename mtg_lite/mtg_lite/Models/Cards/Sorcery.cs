@@ -11,7 +11,7 @@ namespace mtg_lite.Models.Cards
     public class Sorcery : Card
     {
 
-        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, picture)
+        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {            
         }
 
@@ -36,11 +36,11 @@ namespace mtg_lite.Models.Cards
                 }
                 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
+        public override bool EstUnPermanent => false;
     }
 }

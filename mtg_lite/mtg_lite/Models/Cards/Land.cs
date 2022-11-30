@@ -40,9 +40,9 @@ namespace mtg_lite.Models.Cards
                         return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 0), Resource.blightning);                    
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw new Exception(e.Message); 
             }
         }
     }
