@@ -56,12 +56,10 @@ namespace MTGO_lite.Models.Manas.ManaColors
         {
             return a.quantity > b.quantity;
         }
-        
+
         public static bool operator <(ManaColor a, ManaColor b)
         {
             return a.quantity < b.quantity;
         }
-            
-
     }
 }

@@ -10,8 +10,9 @@ namespace mtg_lite.Models.Cards
 {
     public class Sorcery : Card
     {
+        public override bool EstUnPermanent { get => false; }
 
-        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, picture)
+        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, /*false,*/ picture)
         {            
         }
 
@@ -36,10 +37,9 @@ namespace mtg_lite.Models.Cards
                 }
                 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
     }

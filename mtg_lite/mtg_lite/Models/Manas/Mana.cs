@@ -16,26 +16,32 @@ namespace MTGO_lite.Models.Manas
         {
             get => manaColors[ManaWhite.Name];
         }
+
         public ManaColor Blue
         {
             get => manaColors[ManaBlue.Name];
         }
+
         public ManaColor Black
         {
             get => manaColors[ManaBlack.Name];
         }
+
         public ManaColor Red
         {
             get => manaColors[ManaRed.Name];
         }
+
         public ManaColor Green
         {
             get => manaColors[ManaGreen.Name];
         }
+
         public ManaColor Colorless
         {
             get => manaColors[ManaColorless.Name];
         }
+
         public Dictionary<string, ManaColor> ManaColors { get => manaColors; }
 
         public Mana(): this(0, 0, 0, 0, 0, 0)
@@ -57,31 +63,27 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
-            
-                foreach (var manaColor in manaToPay.manaColors)
+            foreach (var manaColor in manaToPay.manaColors)
+            {
+                if (manaColor.Key == ManaColorless.Name)
                 {
-                    if (manaColor.Key == ManaColorless.Name)
-                    {
-                        continue;
-                    }
-                    if (manaColor.Value > manaColors[manaColor.Key])
-                    {
-                        throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
-                    }
-                    
+                    continue;
+                }                
+                if (manaColor.Value > manaColors[manaColor.Key])
+                {
+                    throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
                 }
-                foreach (var manaColor in manaToPay.manaColors)
+            }
+            foreach (var manaColor in manaToPay.manaColors)
+            {
+                if (manaColor.Key == ManaColorless.Name)
                 {
-                    if (manaColor.Key == ManaColorless.Name)
-                    {
-                        continue;
-                    }                    
-                   
-                     manaColors[manaColor.Key].Remove(manaColor.Value);
-                        //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
-                        //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
-                    
-                }            
+                    continue;
+                }
+                manaColors[manaColor.Key].Remove(manaColor.Value);
+                //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
+                //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
+            }
         }
 
         public void Add(Mana manaToAdd)
@@ -89,16 +91,15 @@ namespace MTGO_lite.Models.Manas
             foreach (var manaColor in manaToAdd.manaColors)
             {
                 manaColors[manaColor.Key].Add(manaColor.Value);
-            }
-           
+            }           
         }
+
         public void Remove(Mana manaToAdd)
         {
             foreach (var manaColor in manaToAdd.manaColors)
             {
                 manaColors[manaColor.Key].Remove(manaColor.Value);
             }
-
         }
     }
 }

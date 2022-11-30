@@ -31,12 +31,10 @@ namespace mtg_lite.Models.Cards
                     default:
                         return new Creature(stringEntree, new Mana(1, 0, 0, 1, 0, 2), Resource.scathe_zombies);
                 }
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
     }
