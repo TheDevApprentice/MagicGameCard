@@ -13,7 +13,7 @@ namespace mtg_lite.Models.Zones
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
         }
-        public void BrasserCarte(List<Card> cards)
+        public void BrasserCarte()
         {
             int i = 0;
             Random rand = new Random();

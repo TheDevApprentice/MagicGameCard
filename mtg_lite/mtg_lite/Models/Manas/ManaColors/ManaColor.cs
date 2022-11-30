@@ -17,6 +17,8 @@ namespace MTGO_lite.Models.Manas.ManaColors
         public abstract string ColorName { get; }
         public abstract Bitmap Icon { get; }
 
+        public event EventHandler<int> ManaChanged;
+
         protected ManaColor(int quantity)
         {
             this.quantity = quantity;
@@ -30,16 +32,19 @@ namespace MTGO_lite.Models.Manas.ManaColors
         public void Add(ManaColor mana)
         {
             this.quantity += mana.quantity;
+            ManaChanged?.Invoke(this, quantity);
         }
 
         public void Remove(ManaColor mana)
         {
             this.quantity -= mana.quantity;
+            ManaChanged?.Invoke(this, quantity);
         }
 
         public void Remove(int quantity)
         {
             this.quantity -= quantity;
+            ManaChanged?.Invoke(this, quantity);
         }
 
         public override string ToString()

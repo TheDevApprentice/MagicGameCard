@@ -31,7 +31,7 @@ namespace mtg_lite.Models.Players
             graveyard = new Graveyard(new List<Card>(), this);
             hand = new Hand(new List<Card>(), this);
             library = new Library (LibraryManager.GetCards(libraryName), this);
-            library.BrasserCarte(LibraryManager.GetCards(libraryName));
+            library.BrasserCarte();
             Subscribe();
         }
 
@@ -46,13 +46,13 @@ namespace mtg_lite.Models.Players
             hand.AddCard(card);
         } 
         private void hand_CardRemoved(object? sender, Cards.Card card)
-        {                     
-            //hand.AddCard(card);         
+        {                           
         }
         public void PlayCard(Card card)
-        {
-            ManaPool.Pay(card.ManaCost);
-            if (card.EstUnPermanent == true)
+        {            
+            ManaPool.Pay(card.ManaCost);            
+            
+            if (card.EstUnPermanent)
             {
                 hand.RemoveCard(card);
                 battlefield.AddCard(card);                

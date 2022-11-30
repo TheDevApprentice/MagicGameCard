@@ -26,13 +26,12 @@ namespace mtg_lite.Models.Zones
                 {
                     return new DarkCardBack();
                 }
-                return cards[cards.Count-1];
+                return cards[cards.Count - 1];
             }
         }
-        public virtual void GererClique(Card card) 
-        { 
+        public virtual void GererClique(Card card)
+        {
         }
-      
 
         public event EventHandler<List<Card>>? CardsChanged;
         public event EventHandler<Card>? CardAdded;
@@ -41,9 +40,9 @@ namespace mtg_lite.Models.Zones
         public Zone(List<Card> cards, Player player)
         {
             this.cards = cards;
-            this.player = player;            
+            this.player = player;
         }
-       
+
         public void AddCard(Card card)
         {
             cards.Add(card);
@@ -61,11 +60,13 @@ namespace mtg_lite.Models.Zones
 
         protected void RemoveTopCard()
         {
-            Card carteTop = cards[cards.Count-1];
+            Card carteTop = cards[cards.Count - 1];
             cards.RemoveAt(cards.Count - 1);
             CardRemoved?.Invoke(this, carteTop);
             CardsChanged?.Invoke(this, cards);
         }
+        //public virtual List<Card> GetAllLands() { return cards; }
+        //public virtual List<Card> GetAllCreatures() { return cards; }
 
         public override string ToString()
         {
