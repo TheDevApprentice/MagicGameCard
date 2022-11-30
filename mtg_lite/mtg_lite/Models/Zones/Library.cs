@@ -9,10 +9,10 @@ namespace mtg_lite.Models.Zones
     {
         public override string Name { get => "Library"; }
 
-        
         public Library(List<Card> cards, Player player) : base(cards, player)
         {
         }
+
         public void BrasserCarte()
         {
             int i = 0;
@@ -27,6 +27,7 @@ namespace mtg_lite.Models.Zones
             }
             this.cards = nouveauCards;         
         }
+
         public override void GererClique(Card card)
         {
             try
@@ -37,11 +38,12 @@ namespace mtg_lite.Models.Zones
                 }
                 RemoveTopCard();
             }
-            catch (Exception e )
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }                           
         }
+
         public override Card TopCard
         {
             get

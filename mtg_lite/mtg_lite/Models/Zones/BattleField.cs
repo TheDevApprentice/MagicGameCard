@@ -17,6 +17,7 @@ namespace mtg_lite.Models.Zones
         public BattleField(List<Card> cards, Player player) : base(cards, player)
         {
         }
+
         public override void GererClique(Card card)
         {
             if (card.Tapped == false)
@@ -34,6 +35,7 @@ namespace mtg_lite.Models.Zones
                 RetirerMana(card);
             }
         }
+
         public List<Card> GetAllLands()
         {
             List<Card> listeDeLands = new List<Card>();
@@ -46,6 +48,7 @@ namespace mtg_lite.Models.Zones
             }
             return listeDeLands;
         }
+
         public List<Card> GetAllCreatures()
         {
             List<Card> listeDeCreatures = new List<Card>();
@@ -58,6 +61,7 @@ namespace mtg_lite.Models.Zones
             }
             return listeDeCreatures;
         }
+
         private void AjouterMana(Card card)
         {
             switch (card.Name)
@@ -82,6 +86,7 @@ namespace mtg_lite.Models.Zones
                     break;
             }
         }
+
         private void RetirerMana(Card card)
         {
             switch (card.Name)

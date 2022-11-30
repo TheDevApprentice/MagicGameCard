@@ -25,7 +25,7 @@ namespace mtg_lite.Models.Cards
                         return new Sorcery(stringEntree, new Mana(0, 0, 0, 2, 0, 4), Resource.death_by_dragons);
                        
                     case "chain_lightning":
-                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 0, 0, 1), Resource.chain_lightning);
+                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 1, 0, 0), Resource.chain_lightning);
                        
                     case "blightning":
                         return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), Resource.blightning);
