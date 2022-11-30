@@ -10,8 +10,9 @@ namespace mtg_lite.Models.Cards
 {
     public class Sorcery : Card
     {
+        public override bool EstUnPermanent { get => false; }
 
-        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, false, picture)
+        protected Sorcery(string name, Mana manaCost, Bitmap picture) : base(name, manaCost, picture)
         {            
         }
 
@@ -25,7 +26,7 @@ namespace mtg_lite.Models.Cards
                         return new Sorcery(stringEntree, new Mana(0, 0, 0, 2, 0, 4), Resource.death_by_dragons);
                        
                     case "chain_lightning":
-                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 0, 0, 1), Resource.chain_lightning);
+                        return new Sorcery(stringEntree, new Mana(0, 0, 0, 1, 0, 0), Resource.chain_lightning);
                        
                     case "blightning":
                         return new Sorcery(stringEntree, new Mana(1, 0, 0, 1, 0, 1), Resource.blightning);
@@ -36,11 +37,10 @@ namespace mtg_lite.Models.Cards
                 }
                 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
-        }
+        }        
     }
 }
