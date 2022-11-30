@@ -17,7 +17,6 @@ namespace mtg_lite.Models.Cards
         private Mana manaCost;
         private Bitmap picture;
         private bool tapped;
-        //private bool estUnPermanent;
         private Guid guid;
         protected CardType cardType;
 
@@ -30,12 +29,11 @@ namespace mtg_lite.Models.Cards
         public event EventHandler<bool>? TappedChanged;
         public virtual CardType CardType { get => cardType; }
 
-        public Card(string name, Mana manaCost, /*bool estUnPermanent,*/ Bitmap picture)
+        public Card(string name, Mana manaCost, Bitmap picture)
         {
             this.name = name;
             this.manaCost = manaCost;
-            this.picture = picture;
-            //this.estUnPermanent = estUnPermanent;            
+            this.picture = picture;        
             tapped = false;
             guid = Guid.NewGuid();
         }

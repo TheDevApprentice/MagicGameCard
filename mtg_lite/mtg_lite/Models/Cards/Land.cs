@@ -42,7 +42,7 @@ namespace mtg_lite.Models.Cards
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception(e.Message); 
             }
         }
     }
