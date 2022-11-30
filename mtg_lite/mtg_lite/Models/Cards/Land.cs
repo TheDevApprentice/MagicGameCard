@@ -37,10 +37,8 @@ namespace mtg_lite.Models.Cards
                         return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 0), Resource.swamp);
 
                     default:
-                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 0), Resource.blightning);
-                    
+                        return new Land(stringEntree, new Mana(0, 0, 0, 0, 0, 0), Resource.blightning);                    
                 }
-
             }
             catch (Exception)
             {

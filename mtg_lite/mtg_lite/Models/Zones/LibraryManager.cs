@@ -44,7 +44,5 @@ namespace mtg_lite.Models.Zones
             };
             libraries.Add("Red", Red);            
         }
-
-
     }
 }
