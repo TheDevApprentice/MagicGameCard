@@ -41,7 +41,6 @@ namespace mtg_lite.Models.Cards
             {
                 throw new Exception(e.Message);
             }
-        }
-        public override bool EstUnPermanent => false;
+        }        
     }
 }
