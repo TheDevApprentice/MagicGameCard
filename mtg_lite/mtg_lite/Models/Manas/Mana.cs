@@ -12,6 +12,7 @@ namespace MTGO_lite.Models.Manas
     {
         private Dictionary<string, ManaColor> manaColors;
 
+        ManaColorless potentielColorless = new ManaColorless(0);
         public ManaColor White
         {
             get => manaColors[ManaWhite.Name];
@@ -68,7 +69,7 @@ namespace MTGO_lite.Models.Manas
                 if (manaColor.Key == ManaColorless.Name)
                 {
                     continue;
-                }                
+                }
                 if (manaColor.Value > manaColors[manaColor.Key])
                 {
                     throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
@@ -80,9 +81,10 @@ namespace MTGO_lite.Models.Manas
                 {
                     continue;
                 }
-                manaColors[manaColor.Key].Remove(manaColor.Value);
-                //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
-                //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
+                else
+                {
+                    manaColors[manaColor.Key].Remove(manaColor.Value);
+                }
             }
         }
 
@@ -100,6 +102,17 @@ namespace MTGO_lite.Models.Manas
             {
                 manaColors[manaColor.Key].Remove(manaColor.Value);
             }
+        }
+
+        public ManaColorless GetPotentiel()
+        {
+            potentielColorless = new ManaColorless(0);
+
+            foreach (var manaColor in manaColors)
+            {
+                potentielColorless.Add(manaColor.Value);
+            }
+            return potentielColorless;
         }
     }
 }
