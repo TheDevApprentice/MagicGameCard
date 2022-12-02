@@ -11,10 +11,8 @@ namespace MTGO_lite.Models.Manas
     public class Mana
     {
         private Dictionary<string, ManaColor> manaColors;
-        //private int potentielColorless;
-        //private int detteColorless;
+
         ManaColorless potentielColorless = new ManaColorless(0);
-        //public ManaColorless PotentielColorless { get { return GetPotentiel(); } }
         public ManaColor White
         {
             get => manaColors[ManaWhite.Name];
@@ -66,44 +64,28 @@ namespace MTGO_lite.Models.Manas
 
         public void Pay(Mana manaToPay)
         {
-            potentielColorless = GetPotentiel();
             foreach (var manaColor in manaToPay.manaColors)
             {
-                //if (manaColor.Key == ManaColorless.Name)
-                //{
-                //    //detteColorless += manaColor.Value.Quantity;
-                //    continue;
-                //}                
-                if (manaColor.Value > manaColors[manaColor.Key] && manaColor.Value > potentielColorless /*|| detteColorless > potentielColorless*/)
+                if (manaColor.Key == ManaColorless.Name)
                 {
-                    MessageBox.Show("GEtPotentiel : " + potentielColorless.ToString());
+                    continue;
+                }
+                if (manaColor.Value > manaColors[manaColor.Key])
+                {
                     throw new PasAssezDeMana("Vous ne disposez pas assez de mana pour cette carte.");
                 }
-                //detteColorless += manaColor.Value.Quantity;
-                //potentielColorless += manaColors[manaColor.Key].Quantity;
             }
             foreach (var manaColor in manaToPay.manaColors)
             {
                 if (manaColor.Key == ManaColorless.Name)
                 {
-                    potentielColorless.Remove(manaColor.Value);
-                    //continue;
+                    continue;
                 }
                 else
                 {
                     manaColors[manaColor.Key].Remove(manaColor.Value);
-                    potentielColorless.Remove(manaColor.Value);
-                }        
-
-                //detteColorless -= manaColor.Value.Quantity;
-                //potentielColorless -= manaColors[manaColor.Key].Quantity;
-
-                //vieux :
-                //manaColors["Colorless"].Add(manaColors[manaColor.Key]);
-                //manaColors[manaColor.Key].Remove(manaColors[manaColor.Key]);
+                }
             }
-            MessageBox.Show("GEtPotentiel : " + potentielColorless.ToString());
-            //MessageBox.Show("potentielColorless : " + potentielColorless.ToString());
         }
 
         public void Add(Mana manaToAdd)
